@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Wish shop project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <div layout:fragment="content" class="content">
+<div class="containeriw">
+    <div class="title">
+        <h2 class="iwh2">주문하기</h2>
+    </div>
+    <div class="d-flex">
+        <form role="form" th:action="@{'/order'}" method="post" enctype="multipart/form-data" class="iwform">
+            <span class="fname">이름 <span class="required">*</span></span>
+            <label class="iwname">
+                <input type="text" name="fname" placeholder="주문자명">
+            </label >
+            <span class="fname">전화번호 <span class="required">*</span></span>
+            <label class="intel">
+                <input type="tel" name="fname" placeholder="-를 제외한 11글자">
+            </label>
+            <label class="address">
+                <input type="button" class="address" id="addressselect" onclick="execDaumPostcode()" value="우편번호 찾기"><br>
+            </label>
+            <label class="address">
+                <input type="text" class="address" id="postcode" placeholder="우편번호">
+            </label>
+            <label class="address">
+                <input type="text" class="address" id="roadAddress" placeholder="도로명주소">
+            </label>
+            <label class="address">
+                <input type="text" class="address" id="jibunAddress" placeholder="지번주소">
+            </label>
+            <label class="address">
+                <input type="text" name="apartment" id="detailAdd" placeholder=" 상세주소">
+            </label>
+
+            <span class="fname" id="requiredelivery">배송 요청 사항</span></span>
+            <label>
+                <input type="email" name="fname" id="iwemail" placeholder="20자 이내로 입력하세요.">
+            </label>
+        </form>
+        <div class="Yorder">
+            <table class="iwtable">
+                <tr class="iwtr">
+                    <th class="iwth" colspan="2">Your order</th>
+                </tr>
+                <tr class="iwtr">
+                    <td class="iwtd">(젤리) 기본 케이스</td>
+                    <td class="iwtd">5000</td>
+                </tr>
+                <tr class="iwtr">
+                    <td class="iwtd">(젤리) 기본 베이지 케이스</td>
+                    <td class="iwtd">10000</td>
+                </tr>
+                <tr class="iwtr">
+                    <td class="iwtd">(젤리) 기본 민트 케이스</td>
+                    <td class="iwtd">10000</td>
+                </tr>
+            </table><br>
+            <div>
+                <input type="radio" name="dbt" value="dbt" checked> 무통장입금
+            </div>
+            <div>
+                <input type="radio" name="dbt" value="cd"> 핸드폰 결제
+            </div>
+            <div>
+                <input type="radio" name="dbt" value="cd"> 신용/체크카드 <span>
+			<img src="https://www.logolynx.com/images/logolynx/c3/c36093ca9fb6c250f74d319550acac4d.jpeg" alt="" width="50">
+			</span>
+            </div>
+            <button class="iwbtn" type="button">주문하기</button>
+        </div><!-- Yorder -->
+    </div>
+</div>
+
+
+    </div>
+</html>
